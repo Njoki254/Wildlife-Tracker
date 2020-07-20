@@ -65,6 +65,48 @@ public class Sighting implements SightingInterface {
         this.rangerEmail = rangerEmail;
     }
 
+    public static List<NonEndangered> getAllSightings() {
+        try (Connection con = DB.sql2o.open()){
+            String queryNonEndangered = "SELECT* FROM sightings WHERE animal_id = :animalId ORDER BY timestamp DESC";
+            return con.createQuery(queryNonEndangered)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(NonEndangered.class);
+        }
+    }
+
+    public static Sighting find(int id) {
+        String sql = "SELECT* FROM sightings WHERE id=:id;";
+        try(Connection con = DB.sql2o.open()) {
+
+            Sighting sighting = con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Sighting.class);
+            return sighting;
+        } catch (IndexOutOfBoundsException exception) {
+            return null;
+        }
+    }
+    public void updateSighting() {
+        String sql = "UPDATE sightings SET location = :location, rangerName = :rangerName WHERE id = :id";
+
+        try(Connection con = DB.sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("location", location)
+                    .addParameter("rangerName", rangerName)
+                    .addParameter("rangerEmail", rangerEmail)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
+    public void deleteSighting(){
+        try(Connection con = DB.sql2o.open()) {
+            con.createQuery("DELETE FROM sightings WHERE id=:id")
+                    .addParameter("id",id)
+                    .executeUpdate();
+        }
+    }
+
     @Override
     public void save() {
 
