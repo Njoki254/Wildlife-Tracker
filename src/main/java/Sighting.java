@@ -12,7 +12,7 @@ public class Sighting implements SightingInterface {
     private String rangerName;
     private String rangerEmail;
     private Timestamp timestamp;
-    private static ArrayList<Sighting> instances = new ArrayList<>();
+
 
     public Sighting(String location, String rangerName, String rangerEmail, int animal_id) {
         if (rangerName.equals("")) {
@@ -26,8 +26,7 @@ public class Sighting implements SightingInterface {
         this.rangerName = rangerName;
         this.rangerEmail = rangerEmail;
         this.save();
-        instances.add(this);
-        this.id = instances.size();
+
     }
 
     public int getId() {

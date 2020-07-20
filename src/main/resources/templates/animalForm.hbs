@@ -1,0 +1,47 @@
+
+{{#partial "content"}}
+
+    <div class="container">
+
+
+                <form action="/sighting/new" method="post">
+                    <div class="form-group">
+                        <label class="active " for="species">Species</label>
+                        <input id="species" name="species" type="text" class="form-control">
+                    </div>
+                    <label for="age">Select age group:</label>
+                    <select id="age" name="age">
+                        <option value="newBorn">New Born</option>
+                        <option value="young">Young</option>
+                        <option value="adult">Adult</option>
+                    </select>
+                    <label for="health">Select Health Status:</label>
+                    <select id="health" name="age">
+                        <option value="healthy">Healthy</option>
+                        <option value="okay">Okay</option>
+                        <option value="ill">Ill</option>
+                    </select>
+                    <div class= "row">
+                        <div class="col-md-4">
+                            <input type="radio" id="1" name="life-status" values="endangered">
+                            <label for="endangered"> Endangered</label><br>
+                            <input type="radio" id="2" name="life-status" value="unendangered">
+                            <label for="unendangered">Ranger</label><br>
+                        </div>
+                    </div>
+                    <button type="submit" class=" btn btn-success" >Save sighting!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+    </div>
+
+
+
+{{/partial}}
+
+{{> layout.hbs}}

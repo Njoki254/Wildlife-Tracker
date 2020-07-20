@@ -7,10 +7,11 @@ import java.util.Map;
 
 import static java.lang.Integer.parseInt;
 import static spark.Spark.*;
+import org.sql2o.*;
 
 public class App {
     public static void main(String[] args) {
-        staticFileLocation("/public");
+
         ProcessBuilder process = new ProcessBuilder();
         int port;
 
@@ -20,6 +21,8 @@ public class App {
             port = 4567;
         }
         port(port);
+        //have it here because get methods need something to reference with
+        staticFileLocation("/public");
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
@@ -48,6 +51,17 @@ public class App {
         get("/sighting-store", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(model, "sightingStore.hbs");
+        }, new HandlebarsTemplateEngine());
+        post("/sighting/new", (req, res)-> {
+            Map<String, Object> model = new HashMap<>();
+            int animal_id = Integer.parseInt(req.queryParams("animal_id"));
+            String rangerName = req.queryParams("rangerName");
+            String location = req.queryParams("location");
+            String rangerEmail = req.queryParams("rangerEmail");
+            Sighting newSighting = new Sighting(location, rangerName, rangerEmail,animal_id );
+            newSighting.save();
+            model.put("newSighting", newSighting);
+            return new ModelAndView(model, "Success.hbs");
         }, new HandlebarsTemplateEngine());
 
 

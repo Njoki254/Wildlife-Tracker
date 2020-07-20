@@ -5,32 +5,20 @@ import java.sql.Timestamp;
 
 public class NonEndangered extends Animal {
 
-    public static final String WILDLIFE_TYPE = "nonendangered";
+    public static final String DATABASE_TYPE = "nonendangered";
 
-    public NonEndangered(String name) {
-        if (name.equals("")) {
-            throw new IllegalArgumentException("Please enter an animal name.");
+    public NonEndangered(){
+        this.species = species;
+        this.type = DATABASE_TYPE;
+    }
+    public static List<NonEndangered> getAllNonEndangered() {
+        try (Connection con = DB.sql2o.open()){
+            String queryNonEndangered = "SELECT * FROM animals WHERE type='nonendangered'";
+            return con.createQuery(queryNonEndangered)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(NonEndangered.class);
         }
-        this.species = species;
-        // this.id= id;
-        this.type = type;
-
     }
 
-    public String getSpecies() {
-        return species;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setSpecies(String species) {
-        this.species = species;
-    }
 
 }
