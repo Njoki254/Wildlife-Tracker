@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Eco-Tracker{{/block}}</title>
+    <link rel = "icon" href =
+            "/images/icon"
+          type = "image/x-icon">
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+
+<ul class="topnav">
+    <li id="navbar" class="active"><a href="/"><strong>HOME</strong></a></li>
+    <li id=navbar"><a href="/ranger-guide"><strong>GUIDE</strong></a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li class="right"><a href="#about">About</a></li>
+</ul>
+
+<ul class="nav nav-tabs" id="navbar">
+
+    <a class="navbar-brand" href="/"><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-3-1/512/animal-footprint-512.png" width="40px" height="35px" ></a>
+
+    <li role="presentation" id="navbar" class="active"><a href="/"><strong>HOME</strong></a></li>
+    <li role="presentation" id="navbar"><a href="/ranger-guide"><strong>GUIDE</strong></a></li>
+    <li role="presentation" id="navbar"><a href="/sighting-form"><strong>FORM</strong></a></li>
+    <li role="presentation" id="navbar"><a href="/all-sightings"><strong>SIGHTINGS</strong></a></li>
+    <li role="presentation" class="navbar" id="navbar"><a href="/endangered"><strong>ENDANGERED</strong></a></li>
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <li role="presentation"  class="right" id="header"><strong>ECO-TRACKER</strong></li>
+
+</ul>
+
+<div class="container">
+    <!--begin main template-->
+
+
+
+    {{#block "content"}}
+    {{/block}}
+
+
+</div>
+<!--end main template-->
+{{#block "footer"}}
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted"><a href="/ranger-guide"> &nbsp; &nbsp; </a></p>
+        </div>
+    </footer>
+    </body>
+    </html>
+{{/block}}
