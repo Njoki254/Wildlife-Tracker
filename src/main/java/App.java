@@ -52,7 +52,30 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(model, "sightingStore.hbs");
         }, new HandlebarsTemplateEngine());
+        get("/animal-store", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "animalStore.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/animal-form", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "animalForm.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/animal-success", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "animalSuccess.hbs");
+        }, new HandlebarsTemplateEngine());
         post("/sighting/new", (req, res)-> {
+            Map<String, Object> model = new HashMap<>();
+            int animal_id = Integer.parseInt(req.queryParams("animal_id"));
+            String rangerName = req.queryParams("rangerName");
+            String location = req.queryParams("location");
+            String rangerEmail = req.queryParams("rangerEmail");
+            Sighting newSighting = new Sighting(location, rangerName, rangerEmail,animal_id );
+            newSighting.save();
+            model.put("newSighting", newSighting);
+            return new ModelAndView(model, "Success.hbs");
+        }, new HandlebarsTemplateEngine());
+        post("/animal/new", (req, res)-> {
             Map<String, Object> model = new HashMap<>();
             int animal_id = Integer.parseInt(req.queryParams("animal_id"));
             String rangerName = req.queryParams("rangerName");
