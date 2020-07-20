@@ -19,6 +19,17 @@ public class NonEndangered extends Animal {
                     .executeAndFetch(NonEndangered.class);
         }
     }
+    public static NonEndangered find(int id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM nonendangered WHERE id=:id;";
+            NonEndangered nonendangered = con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(NonEndangered.class);
+            return nonendangered;
+        } catch (IndexOutOfBoundsException exception) {
+            return null;
+        }
+    }
 
 
 }
