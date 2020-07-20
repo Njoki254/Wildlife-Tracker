@@ -21,15 +21,31 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="active " for="animal_id">Animal Id</label>
+                        <label class="active " for="animal_id">Species</label>
                         <input id="animal_id" name="animal_id" type="text" class="form-control">
                     </div>
-
-
                     <div class="form-group">
                         <label class="active" for="location">Sight Location</label>
                         <input id="location" name="location" type="text" class="form-control">
                     </div>
+                    <!--If statement-- for when radio is checked-->
+                    <div class= "row">
+                        <div class="col-md-4">
+                            <input type="radio" id="1" name="life-status" values="endangered">
+                            <label for="endangered"> Endangered</label><br>
+                            <input type="radio" id="2" name="life-status" value="unendangered">
+                            <label for="unendangered">Ranger</label><br>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="active" for="age">Age</label>
+                        <input id="age" name="age" type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="active" for="health">Health Status</label>
+                        <input id="healthLevel" name="healthLevel" type="text" class="form-control">
+                    </div>
+                        <!--If statement-- for when radio is checked-->
                     <button type="submit" class=" btn btn-success" >Save sighting!</button>
                 </form>
             </div>

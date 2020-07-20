@@ -49,22 +49,7 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(model, "sightingStore.hbs");
         }, new HandlebarsTemplateEngine());
-        get("/animal-form", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            return new ModelAndView(model, "animalForm.hbs");
-        }, new HandlebarsTemplateEngine());
-        get("/animal-success", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            return new ModelAndView(model, "animalSuccess.hbs");
-        }, new HandlebarsTemplateEngine());
-        get("/animal-store", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            return new ModelAndView(model, "animalStore.hbs");
-        }, new HandlebarsTemplateEngine());
-        get("/animal-edit", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            return new ModelAndView(model, "animalEdit.hbs");
-        }, new HandlebarsTemplateEngine());
+
 
     //animal CREATE and push to success page routing
 
