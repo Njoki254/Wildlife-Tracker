@@ -30,6 +30,13 @@ public class NonEndangered extends Animal {
             return null;
         }
     }
+    public void delete(){
+        try(Connection con = DB.sql2o.open()) {
+            con.createQuery("DELETE FROM nonendangered WHERE id=:id")
+                    .addParameter("id",id)
+                    .executeUpdate();
+        }
+    }
 
 
 }

@@ -96,4 +96,12 @@ public class Endangered extends Animal {
         }
     }
 
+    public void delete(){
+        try(Connection con = DB.sql2o.open()) {
+            con.createQuery("DELETE FROM endangered WHERE id=:id")
+                    .addParameter("id",id)
+                    .executeUpdate();
+        }
+    }
+
 }
