@@ -64,28 +64,58 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(model, "animalSuccess.hbs");
         }, new HandlebarsTemplateEngine());
-        post("/sighting/new", (req, res)-> {
+
+        get("/all",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            int animal_id = Integer.parseInt(req.queryParams("animal_id"));
-            String rangerName = req.queryParams("rangerName");
-            String location = req.queryParams("location");
-            String rangerEmail = req.queryParams("rangerEmail");
-            Sighting newSighting = new Sighting(location, rangerName, rangerEmail,animal_id );
-            newSighting.save();
-            model.put("newSighting", newSighting);
+            List<Endangered> endangereds = Endangered.getAllEndangered();
+            List<NonEndangered> nonEndangereds = NonEndangered.getAllNonEndangered();
+            List<Sighting> sightings = Sighting.getAllSightings();
+            model.put("sightings", sightings);
+            model.put("endangereds", endangereds);
+            model.put("nonEndangereds", nonEndangereds);
+            return new ModelAndView(model, "sightingStore.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/all/sighting",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Sighting> sightings = Sighting.getAllSightings();
+            model.put("sightings", sightings);
+            return new ModelAndView(model, "sightingStore.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/all/endangered",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Endangered> endangereds = Endangered.getAllEndangered();
+            model.put("endangereds", endangereds);
+            return new ModelAndView(model, "endangeredSpecies.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/all/nonEndangered",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<NonEndangered> nonEndangereds = NonEndangered.getAllNonEndangered();
+            model.put("nonEndangereds", nonEndangereds);
+            return new ModelAndView(model, "animalStore.hbs");
+        }, new HandlebarsTemplateEngine());
+        post("/sighting/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String rangerName = request.queryParams("rangerName");
+            String rangerEmail = request.queryParams("rangerEmail");
+            //String[] members = request.queryParamsValues("members"); important line for working with checkboxes
+            String location= request.queryParams("location");
+            int animal_id=parseInt(request.queryParams("animal_id"));
+            // String heroName = request.queryParams("heroName");
+            // String heroStrength= request.queryParams("heroStrength");
+            // String heroWeakness = request.queryParams("heroWeakness");
+            //int heroAge = parseInt(request.params("heroAge"));
+            // Hero newHeroes = new Hero(heroName,heroAge,heroStrength,heroWeakness);
+
+            Sighting sighting = new Sighting(location, rangerName, rangerEmail, animal_id);//constructor
+            //String members = request.queryParams("members");
+
+            // model.put("newHeroes", newHeroes);
+            model.put( "sighting",sighting);//stores the newSquad
+
+            // model.put("members", members);
             return new ModelAndView(model, "Success.hbs");
         }, new HandlebarsTemplateEngine());
-        post("/animal/new", (req, res)-> {
-            Map<String, Object> model = new HashMap<>();
-            int animal_id = Integer.parseInt(req.queryParams("animal_id"));
-            String rangerName = req.queryParams("rangerName");
-            String location = req.queryParams("location");
-            String rangerEmail = req.queryParams("rangerEmail");
-            Sighting newSighting = new Sighting(location, rangerName, rangerEmail,animal_id );
-            newSighting.save();
-            model.put("newSighting", newSighting);
-            return new ModelAndView(model, "Success.hbs");
-        }, new HandlebarsTemplateEngine());
+        //To get all posts in one place
 
 
     //animal CREATE and push to success page routing
