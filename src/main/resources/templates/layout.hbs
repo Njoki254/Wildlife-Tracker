@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{#block "title"}}Wildlife-Tracker{{/block}}</title>
+    <link rel = "icon" href =
+            "/images/icon"
+          type = "image/x-icon">
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+
+
+<ul class="nav nav-tabs" id="navbar">
+
+    <a class="navbar-brand" href="/"><img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-3-1/512/animal-footprint-512.png" width="40px" height="35px" ></a>
+    <li class="navbar" id="titleTab"><strong>WILDLIFE TRACKER</strong></li>
+    <li  class="navbar" id="navbar"><a href="/endangered"><strong>ENDANGERED SPECIES</strong></a></li>
+    <li class="navbar-right"><a href="/animal-store"><strong>ANIMALS</strong></a></li>
+    <li class="navbar-right"><a href="/sighting-store"><strong>SIGHTINGS</strong></a></li>
+    <li  class="navbar-right"><a href="/animal-form"><strong>ADD ANIMAL</strong></a></li>
+    <li  class="navbar-right"><a href="/sighting-form"><strong>ADD SIGHTING</strong></a></li>
+    <li class="navbar-right"><a href="/ranger-guide"><strong>GUIDE</strong></a></li>
+    <li  class="navbar-right" class="navbar-right"><a href="/"><strong>HOME</strong></a></li>
+
+
+
+
+
+
+
+</ul>
+
+<div class="container">
+    <!--begin main template-->
+
+
+
+    {{#block "content"}}
+    {{/block}}
+
+
+</div>
+<!--end main template-->
+{{#block "footer"}}
+    <footer>
+        <section id="footer">
+            <div id="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 text-center">
+                        <h3 class="text-center"><strong>Contact Us</strong></h3>
+                        <p><i class="fas fa-envelope fa-2x"></i>&nbsp;&nbsp;info@wildlifekenya.co.ke</p>
+                        <p><i class="fas fa-phone-square-alt fa-2x"></i>&nbsp;&nbsp;+25478910</p>
+                        <p><i class="fab fa-whatsapp-square fa-2x"></i>&nbsp;&nbsp;+1234567/p>
+                    </div>
+                    <div class="col-md-3 col-sm-4 text-center id="links"">
+                    <h3 class="text-center"><strong><strong>Our links</strong></h3>
+                    <h5 id="link"><a href="#bonga-word">Wildlife Kenya</a></h5>
+                    <h5 id="link"><a href="#footer">Footer</a></h5>
+                    <h5 id="link"><a href="#timer">Timer</a></h5>
+                    <h5 id="link"><a href="#">Social</a></h5>
+                    <h5 id="link"><a href="#">Copyright</a></h5>
+
+                </div>
+                <div class="col-md-3 col-sm-4 text-center">
+                    <h3 class="text-center"><strong>Find us</strong></h3>
+                    <a href="https://www.facebook.com/wildlife.tracker.9"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="https://www.instagram.com/p/CAekV48jOA7/?utm_source=ig_web_copy_link"><i class="fab fa-instagram-square fa-2x"></i></a>
+                    <a href="https://publish.twitter.com/?query=https%3A%2F%2Ftwitter.com%2FKenyaBonga%2Fstatus%2F1263693618151337984&widget=Tweet"><i class="fab fa-twitter-square fa-2x"></i></a>
+                </div>
+            </div>
+            </div>
+        </section>
+    </footer>
+{{/block}}

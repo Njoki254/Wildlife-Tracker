@@ -1,0 +1,19 @@
+ {{#partial "content"}}
+
+
+    <div class="container" id="displaySightings>
+        <h1> List of Sighting Created</h1>
+        {{#if sightings}}
+           {{#each sightings}}
+               {{location}}
+               {{rangerName}}
+               {{rangerEmail}}
+               {{animal_id}}
+           {{/each}}
+        {{/if}}
+    </div>
+
+ {{/partial}}
+    <!--should have single quotes-->
+
+{{> layout.hbs}}

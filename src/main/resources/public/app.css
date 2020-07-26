@@ -1,0 +1,86 @@
+
+#navbar{
+background-color:#84701E;
+color: white;
+}
+a{
+color:white;
+}
+.right {
+float: right;
+font-size: 100px;
+}
+#titleTab{
+font-size: 30px;}
+#navbar{
+
+}
+.mainImage{
+  background-image: url('/images/homepagebck.jpg');
+  background-position: center;
+  text-align: center;
+  background-size:cover;
+  color: white;
+  padding-top:18%;
+  font-family: sans-serif, ;
+  padding-bottom: 15%
+  box-shadow: 0 0 8px 8px white inset;
+}
+.aboutus{
+  text-align: center;
+  padding-bottom: 30px;
+  padding-top:40px;
+}
+
+#map{
+  padding: 50px;
+    background-color: #84701E;
+  transition: transform .2s;
+  width: 600px;
+  height: 650px;
+  margin: 0 auto;
+}
+
+#map:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5);
+}
+#mara{
+text-align: center;
+}
+.page-header{
+
+
+}
+#thebig5{
+box-shadow: 0 0 8px 8px white inset;
+}
+#endangered1{
+
+
+ }
+ .card{
+ background-color:#84701E;
+ }
+ body{
+ background-color:white;
+ }
+
+#homepage{
+background-color:#C9D2CB;
+text-align:center;
+background-image:url('/images/homepagebck.jpg');
+background-repeat: no-repeat;
+background-size:cover;
+background-position: 0px;
+text-align:center;
+color: white;
+box-shadow: 0 0 8px 8px white inset;
+
+}
+
+footer{
+  background-color: #84701E;
+  color:white;
+}

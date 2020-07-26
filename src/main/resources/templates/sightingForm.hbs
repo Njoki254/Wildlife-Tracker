@@ -1,0 +1,64 @@
+
+{{#partial "content"}}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h2 id="mara">Maasai Mara Reserve</h2>
+                <img src="/images/maranorth.jpg" alt="Mara North Map" class="image-fluid map ml-5" id="map">
+            </div>
+            <div class="col-md-5">
+                <h2 class="text-center"><strong>Record a Sighting</strong></h2>
+
+                <form action="/all/sighting/" method="get">
+                    <div class="form-group">
+                        <label class="active " for="rangerName">Ranger Name</label>
+                        <input id="rangerName" name="rangerName" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="active " for="rangerEmail">Ranger Email</label>
+                        <input id="rangerEmail" name="rangerEmail" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="active " for="animal_id">Species</label>
+                        <input id="animal_id" name="animal_id" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="active" for="location">Sight Location</label>
+                        <input id="location" name="location" type="text" class="form-control">
+                    </div>
+                    <!--If statement-- for when radio is checked-->
+                    <div class= "row">
+                        <div class="col-md-4">
+                            <input type="radio" id="1" name="life-status" values="endangered">
+                            <label for="endangered"> Endangered</label><br>
+                            <input type="radio" id="2" name="life-status" value="unendangered">
+                            <label for="unendangered">Ranger</label><br>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="active" for="age">Age</label>
+                        <input id="age" name="age" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="active" for="health">Health Status</label>
+                        <input id="healthLevel" name="healthLevel" type="text" class="form-control">
+                    </div>
+                        <!--If statement-- for when radio is checked-->
+                    <button type="submit" class=" btn btn-success" >Save sighting!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+    </div>
+
+
+
+{{/partial}}
+
+{{> layout.hbs}}
